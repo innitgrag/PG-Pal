@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URI,
+    origin: "https://pg-pal.netlify.app/register",
     credentials: true,
   })
 );
