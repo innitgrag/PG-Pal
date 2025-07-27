@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import pp from "../../assets/pp.png";
 import logo from '../../assets/logo.png'
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
 function Home() {
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
@@ -30,7 +30,7 @@ function Home() {
     const fetchAllProperty = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`${baseUrl}/seeker/getAll`, {
+        const res = await axios.get('http://localhost:8080/seeker/getAll', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

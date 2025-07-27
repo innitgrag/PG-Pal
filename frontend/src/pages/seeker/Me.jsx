@@ -3,7 +3,6 @@ import axios from 'axios'
 import { useAuth } from '../../Context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 function Me() {
   const [info, setInfo] = useState(null)
@@ -19,7 +18,7 @@ function Me() {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token')
-        const res = await axios.get(`${baseUrl}/seeker/me`, {
+        const res = await axios.get('http://localhost:8080/seeker/me', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

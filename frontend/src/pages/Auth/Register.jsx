@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import logo from '../../assets/logo.png'
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
 function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -16,7 +16,7 @@ function Register() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`${baseUrl}/register`, {
+      const res = await axios.post('http://localhost:8080/register', {
         name,
         email,
         phone,

@@ -4,7 +4,6 @@ import { useAuth } from '../../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import logo from '../../assets/logo.png'
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -15,7 +14,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${baseUrl}/login`, {
+      const res = await axios.post('http://localhost:8080/login', {
         email,
         password,
       });
