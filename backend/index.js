@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: "https://pg-pal-frontend.vercel.app/register",
+     origin: "http://localhost:5174",
     credentials: true,
   })
 );
