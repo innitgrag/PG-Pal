@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-     origin: "http://localhost:5174",
+     origin: "https://frontend-qymqtv7bi-akshiti-gargs-projects.vercel.app",
     credentials: true,
   })
 );
