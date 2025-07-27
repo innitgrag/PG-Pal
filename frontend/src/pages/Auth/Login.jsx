@@ -17,6 +17,10 @@ function Login() {
       const res = await axios.post('http://localhost:8080/login', {
         email,
         password,
+      },{
+  headers: {
+    'Content-Type': 'application/json',
+  },
       });
 
       const { user, token } = res.data;
