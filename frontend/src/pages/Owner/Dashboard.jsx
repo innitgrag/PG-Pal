@@ -55,7 +55,7 @@ function Dashboard() {
       className="h-10 sm:h-14 md:h-16 w-auto max-w-[150px]"
     />
   </div>
-  <a href="/owner/dashboard" className="flex-shrink-0">
+  <a href="/owner/profile" className="flex-shrink-0">
     <img
       src={pp}
       alt="Profile"
