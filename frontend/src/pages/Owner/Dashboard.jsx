@@ -3,6 +3,7 @@ import axios from 'axios';
 import pp from '../../assets/pp.png';
 import { toast } from 'react-toastify';
 import logo from '../../assets/logo.png'
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 function Dashboard() {
   const [propi, setPropi] = useState([]);
@@ -11,7 +12,7 @@ function Dashboard() {
     const fetchProperties = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:8080/owner/dashboard', {
+        const res = await axios.get(`${baseUrl}/owner/dashboard`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -30,7 +31,7 @@ function Dashboard() {
   const handleDelete = async (property_id) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:8080/owner/deleteProperty/${property_id}`, {
+      await axios.delete(`${baseUrl}/owner/deleteProperty/${property_id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 function AddProperty() {
   const navigate = useNavigate();
@@ -77,7 +78,7 @@ function AddProperty() {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        'http://localhost:8080/owner/addProperty',
+        `${baseUrl}/owner/addProperty`,
         formattedData,
         {
           headers: {
