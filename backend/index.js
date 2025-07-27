@@ -18,13 +18,7 @@ connectDB();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-const allowedOrigins = [
-  "https://pg-pal.vercel.app",
-  "https://pg-pal-akshiti-gargs-projects.vercel.app"
-];
-
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -32,8 +26,16 @@ app.use(cors({
       callback(new Error("Not allowed by CORS"));
     }
   },
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
-}));
+};
+
+app.use(cors(corsOptions));
+
+// Handle preflight OPTIONS request for all routes
+app.options('*', cors(corsOptions));
+
 
 
 // Routes
